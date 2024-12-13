@@ -7,7 +7,7 @@ from classes.datetime import covert_to_local_timezone
 from classes.datetime import is_a_previous_time
 from classes.telegram import Telegram
 from classes.weibo import Weibo
-
+from classes.feishu import Feishu
 
 def main():
     ota_update_url = "https://mesu.apple.com/assets/com_apple_MobileAsset_UARP_A2618/com_apple_MobileAsset_UARP_A2618.xml"
@@ -54,6 +54,9 @@ def main():
 
     weibo = Weibo()
     weibo.post_weibo(message.replace('*', ''))
+
+    feishu = Feishu()
+    feishu.send_message(message.replace('*', ''))
 
     # Update record
     db.db_operate("UPDATE accessory_ota_update SET update_time = ? WHERE model = 'A2618'", (firmware_release_date,))

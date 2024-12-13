@@ -8,7 +8,7 @@ from classes.database import DatabaseUtil
 from classes.datetime import is_a_previous_time
 from classes.telegram import Telegram
 from classes.weibo import Weibo
-
+from classes.feishu import Feishu
 
 def main():
     # Read RSS feed from config
@@ -59,16 +59,19 @@ def main():
 
     telegram = Telegram()
     weibo = Weibo()
+    feishu = Feishu()
 
     if len(beta_release) > 0:
         logging.info(beta_release_message)
         telegram.send_message(beta_release_message)
         weibo.post_weibo(beta_release_message)
+        feishu.send_message(beta_release_message)
 
     if len(prod_release) > 0:
         logging.info(prod_release_message)
         telegram.send_message(prod_release_message)
         weibo.post_weibo(prod_release_message)
+        feishu.send_message(prod_release_message)
 
     # Update record
     db.db_operate("UPDATE apple_developer_rss SET update_time = ? WHERE id = 'RSS_FEED_UPDATE_TIME'",
