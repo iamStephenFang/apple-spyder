@@ -10,8 +10,9 @@ Initialize the SQLite 3 database with the file under `res/init_db.sql`.
 
 Put the database file at under the `res` folder, name the file `apple-spyder.db`.
 
-Or you can run the following command directly in the `res` folder.
-```sqlite3 apple-spyder.db < init_db.sql```
+> Or you can run the following command directly in the `res` folder.
+> 
+> ```sqlite3 apple-spyder.db < init_db.sql```
 
 ### Configuration
 Please put the configuration file at under the `res` folder, name the file `config.yaml`.
@@ -32,9 +33,10 @@ telegram:
   bot-token: 4934421727:ZRXNwextc2K_o4j150Nf7u-O2k6CMQVRj4
   chat-id: 4543069976
 
+# Visit https://www.feishu.cn/hc/zh-CN/articles/807992406756-webhook-%E8%A7%A6%E5%8F%91%E5%99%A8 for more information.
 feishu:
   enable: true
-  webhook-url: https://www.feishu.cn/flowapi/trigger-webhook/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  webhook-url: https://www.feishu.cn/flowapi/trigger-webhook/a8b30f8e5c676655ef344002e192181a
 
 url:
   apple-developer-rss: https://developer.apple.com/news/releases/rss/releases.rss

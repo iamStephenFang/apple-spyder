@@ -65,13 +65,13 @@ def main():
         logging.info(beta_release_message)
         telegram.send_message(beta_release_message)
         weibo.post_weibo(beta_release_message)
-        feishu.send_message(beta_release_message)
+        feishu.send_message(beta_release_message.replace('*', ''))
 
     if len(prod_release) > 0:
         logging.info(prod_release_message)
         telegram.send_message(prod_release_message)
         weibo.post_weibo(prod_release_message)
-        feishu.send_message(prod_release_message)
+        feishu.send_message(prod_release_message.replace('*', ''))
 
     # Update record
     db.db_operate("UPDATE apple_developer_rss SET update_time = ? WHERE id = 'RSS_FEED_UPDATE_TIME'",
